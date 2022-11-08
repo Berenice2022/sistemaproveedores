@@ -1,0 +1,47 @@
+body{
+  /*  background: #C6FFDD;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to bottom, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+  /*  background: linear-gradient(to bottom, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.gray{
+    background: #D3D3D3; /*bg-light*/
+}
+.logo {
+    width: 40%;
+}
+.imagenes { /*mx-auto d-block en <img*/
+    width: 45%;
+}
+.tituloproveedor{
+    background: #0f9b0E; /*bg-primary*/ 
+}
+.editarbutton{
+    background: #ffff1c; 
+}
+.tituloproducto{
+    background: #0575E6;
+}
+.titulopedido{
+    background: #61045F;
+}
+.titulopedido{
+    background: #61045F;
+}
+.about{
+    background: #906124;
+    /*<div class="card border-success" >
+    <div class="card-header about text-center text-white">
+        <h1 class=" text-white"> Aplicacion De Sistema De Proveedores </h1>
+    </div>
+
+  <div class="card-body bg-light">
+    <p class="card-text">Este sitio ha sido desarrollado para la evaluacion de la materia Tecnologias De Programacion
+      de la Maestria en Sitemas Computacionales del Instituto Tecnologico de Zacatecas</p>
+     <div class="text-center">&copy; Copyright JILV 2022</div>
+  </div>
+</div>*/
+}
+.footer {
+    height: 2rem;
+    background-color: #e2e2e2
+}

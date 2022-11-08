@@ -1,0 +1,70 @@
+<link rel="stylesheet" type="text/css" href="/css/main.css"> 
+<div class="col-md-5 mx-auto">
+    <div class="card borde-success ">
+        <div class="card-header tituloproducto">
+            <h3 class="text-center text-white">Nuevo Producto</h3>
+        </div>
+        <div class="card-body">
+            <form action="/productos/new-producto" method="POST" enctype="multipart/form-data">
+            <div class="form-group mb-3">
+                <input type="text" 
+                    name="nombre"
+                    class="form-control" 
+                    placeholder="Nombre"
+                    autofocus=""  
+                    value="{{nombre}}">
+            </div>
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <span class="input-group-text">Descripcion</span>
+                <textarea name="description" 
+                    class="form-control" 
+                    aria-label="With textarea">{{description}}</textarea>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <select id="inputGroupSelect01"
+                    name="proveedor"
+                    class="form-control" 
+                    autofocus=""
+                    required>
+                <option>--Selecciona Proveedor--</option>
+                {{#each arreglo}}
+                <option>{{nombre}}</option> 
+                {{/each}}    
+              </select>
+            </div>
+            <div class="form-group mb-3">
+                <input type="number" step="any"
+                    name="precio_de_compra"
+                    class="form-control" 
+                    placeholder="$ Precio De Compra"
+                    autofocus="" 
+                    value="{{precio_de_compra}}"
+                    required>
+            </div>
+            <div class="form-group mb-3">
+                <input type="number" step="any"
+                    name="precio_de_venta"
+                    class="form-control" 
+                    placeholder="$ Precio De Venta"
+                    autofocus="" 
+                    value="{{precio_de_venta}}"
+                    required>
+            </div>
+           <div class="form-group mb-3">
+                    <input type="file" 
+                    name="image" 
+                    class="form-control"   
+                    required>
+            </div>
+            
+            <div class="form-group d-grid gap-2">
+                <button class="btn btn-outline-success" type="submit">
+                    Guardar
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

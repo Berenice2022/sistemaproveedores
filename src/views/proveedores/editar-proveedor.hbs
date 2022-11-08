@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<div class="col-md-5 mx-auto">
+    <div class="card borde-success ">
+        <div class="card-header tituloproveedor">
+            <h3 class="text-center text-white">Editar Proveedor</h3>
+        </div>
+        <div class="card-body">
+            <form action="/proveedores/editar-proveedor/{{_id}}?_method=PUT" 
+            method="POST">
+            <input type="hidden" name="_method" value="PUT">
+           <div class="form-group mb-3">
+                <input type="text"
+                    name="nombre"
+                    class="form-control" 
+                    placeholder="Nombre"
+                    autofocus="" 
+                    value="{{nombre}}"
+                    required>
+            </div>
+            <div class="form-group mb-3">
+                <input type="tel" 
+                name="telefono" 
+                class="form-control" 
+                placeholder="Telefono: (492) 143-1475"
+                autofocus="" 
+                value="{{telefono}}"
+                pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" 
+                title="A valid telephone number consist of a 3 digits code area between brackets, 
+                a space, the three first digits of the number, a space or hypen (-), and four more digits"
+                required></p>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text"
+                    name="direccion"
+                    class="form-control" 
+                    placeholder="Direccion"
+                    autofocus="" 
+                    value="{{direccion}}"
+                    required>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text"
+                    name="codigo_postal"
+                    class="form-control" 
+                    placeholder="Codigo Postal"
+                    autofocus="" 
+                    value="{{codigo_postal}}"
+                    maxlength="5" 
+                    required>
+            </div>
+            <div class="form-group d-grid gap-2">
+                <button class="btn btn-outline-success" type="submit">
+                    Actualizar
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

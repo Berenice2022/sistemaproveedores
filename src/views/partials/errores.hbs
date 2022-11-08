@@ -1,0 +1,24 @@
+{{#if error}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+ <strong>{{error}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<strong>{{error_msg}}</strong>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+</button>
+</div>
+{{/if}} 
+
+{{#each errores}}
+<div class="alert alert-warning alert-dismissible fade show" 
+role="alert">
+ {{text}}
+  <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+  </button>
+</div> 
+{{/each}}

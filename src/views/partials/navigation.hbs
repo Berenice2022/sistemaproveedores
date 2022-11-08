@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">Sistema De Proveedores</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        {{#if usuario}}
+        <ul class="navbar-nav mb-2 mb-lg-0 ">
+        <li class="nav-item dropdown ">
+          <a class="nav-link text-white" href="#" id="navbarDropdownMenu" role="button" 
+          data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="far fa-file-alt text-white"></i><small> Proveedores</small>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLink">
+            <a class="dropdown-item" href="/proveedores">
+            <i class="far fa-copy"></i><small> Listar Proveedores</small>
+            </a>
+              <hr class="dropdown-divider">
+            <a class="dropdown-item " href="/proveedores/add">
+            <i class="far fa-file"></i><small> Agregar Proveedores</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item"  href="/proveedores/search">
+            <i class="far fa-file"></i><small> Buscar Proveedores</small>
+            </a>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white" href="#" id="navbarDropdownMenu" role="button" 
+          data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="far fa-file-alt text-white"></i><small> Productos</small>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLink">
+            <a class="dropdown-item" href="/productos">
+            <i class="far fa-copy"></i><small> Listar Productos</small>
+            </a>
+              <hr class="dropdown-divider">
+            <a class="dropdown-item" href="/productos/add">
+            <i class="far fa-file"></i><small> Agregar Productos</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item"  href="/productos/search">
+            <i class="far fa-file"></i><small> Buscar Productos</small>
+            </a>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white " href="#" id="navbarDropdownMenu" role="button" 
+          data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="far fa-file-alt text-white"></i><small> Pedido</small>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLink">
+            <a class="dropdown-item" href="/pedidos">
+            <i class="far fa-copy"></i><small> Listar Pedidos</small>
+            </a>
+              <hr class="dropdown-divider">
+            <a class="dropdown-item " href="/pedidos/add">
+            <i class="far fa-file "></i><small> Agregar Pedidos</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item"  href="/pedidos/search">
+            <i class="far fa-file"></i><small> Buscar Pedidos</small>
+            </a>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="/about">
+          <i class="far fa-question-circle text-white"></i><small> Info</small></a>
+        </li>
+
+        </ul>
+        
+        {{else}}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <a class="nav-link text-white" href="/users/signin"><i class="fas fa-sign-in-alt text-white"></i><small> Iniciar Sesion</small></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link text-white" href="/users/signup"><i class="fas fa-user-plus text-white"></i><small> Registrar</small></a>
+        </li>
+         </ul>
+
+        {{/if}}
+        
+        {{#if usuario}}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="navbarDropdownMenu" role="button" 
+          data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="far fa-user text-white"></i><small class="text-white">{{usuario.nombre}}</small>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLink">
+            <a class="dropdown-item" href="/users/logout">
+            <i class="fas fa-sign-out-alt text-black"></i> Salir</a>
+          </ul>
+        </li>
+        </ul>
+        {{/if}}
+
+    </div>
+  </div>
+</nav>

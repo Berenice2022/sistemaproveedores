@@ -1,0 +1,78 @@
+<link rel="stylesheet" type="text/css" href="/css/main.css"> 
+<!-- <div class="container"> -->
+<div class="row">
+    {{#each pedidos}}
+    <div class="col-md-4">
+        <div class="card text-dark gray border-info mb-3">
+            <div class="card-header titulopedido"> 
+                <h4 class="card-title justify-content-between align-items-center text-center text-white">
+                    {{producto}}
+                </h4> 
+            </div>
+            <div class="card-body text-center text-black"> 
+                <p>{{proveedor}}</p>
+            </div>
+            <div class="card-body text-center text-black"> 
+                <p>No. Piezas: {{cantidad_de_piezas}}</p>
+            </div>
+            <div class="card-body text-center text-black"> 
+                <p>CT: ${{costo_total}}</p>
+            </div>
+             <div class="card-body text-center text-black"> 
+                <p>{{fecha}}</p>
+            </div>
+            <div class="card-body text-center">
+                 <a class="btn editarbutton" href="/pedidos/edit:{{_id}}"><i class="fas fa-edit m-2">Editar</i></a>
+                <a class="btn btn-danger" href="/pedidos/delete:{{_id}}"><i class="fas fa-trash">Eliminar</i></a>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h1 class="text-center">Hola {{usuario.nombre}}</h1>
+            <p class="lead text-center">No hay Pedidos en la base de datos.</p>
+            <button class="btn btn-outline-dark btn-block">
+                <a href="/pedidos/add" class="btn titulopedido text-white btn-block">Crear Un Nuevo Pedido!</a>
+            </button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+<!--  <div class="row">
+            {{#if pages}}
+            <nav class="mx-auto">
+                <ul class="pagination">
+                    {{#equal current 1}}
+                    <li class="page-item disabled mr-1">
+                        <a href="#" class="page-link">Inicio</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item mr-1">
+                        <a href="/pedidos/1" class="page-link"> Inicio</a>
+                    </li>
+                    {{/equal}}
+
+                    {{#for current pages}}
+                    {{{this}}}
+                    {{/for}}
+
+                     {{#equal current pages}}
+                    <li class="page-item disabled ">
+                        <a href="#" class="page-link">Fin</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item">
+                        <a href="/pedidos/{{pages}}" class="page-link"> Fin</a>
+                    </li>
+                    {{/equal}}                    
+
+                </ul>
+            </nav>
+            {{/if}}
+    </div>
+    -->
+
+<!-- </div> -->
