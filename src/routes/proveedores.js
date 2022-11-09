@@ -2,7 +2,7 @@ const { request, response } = require('express');
 const express = require('express');
 const router = express.Router();//modulo para routas 
 
-//const faker = require('faker');
+const faker = require('faker');
 
 //modelo de proveeedores de la db
 const Proveedor = require('../model/Proveedores');
@@ -34,16 +34,16 @@ router.get('/proveedores/add', isAuthenticated ,function(req,res){
 
 
 router.get('/proveedores',isAuthenticated , async function(req,res){
-   /* const proveedores =  await Proveedor.find({usuario: req.user._id}).sort({fecha: 'desc'});
-    res.redirect('/proveedores/1');*/
-    await Proveedor.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
+    const proveedores =  await Proveedor.find({usuario: req.user._id}).sort({fecha: 'desc'});
+    res.redirect('/proveedores/1');
+   /* await Proveedor.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
               .then( (proveedores)=>{
                 res.render('proveedores/consulta-proveedores', {proveedores});
               })
               .catch( (err)=>{
                 console.log(err);
                 res.redirect('/error');
-              });
+              });*/
 });
 
 
@@ -167,16 +167,16 @@ router.post('/proveedores/new-proveedor', isAuthenticated , async function(req,r
 });//fin guardar
 
 
-/*data false
+//data false
 router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
     for(let i=0; i<30; i++){
          const newProveedor = new Proveedor();
          newProveedor.usuario = req.user._id;
          
          newProveedor.nombre = faker.random.word();
-         newProveedor.telefono = faker.random.numbers();
+         newProveedor.telefono = faker.random.number();
          newProveedor.direccion = faker.random.words();
-         newProveedor.codigo_postal = faker.random.numbers();
+         newProveedor.codigo_postal = faker.random.number();
          await newProveedor.save();
      }
     res.redirect('/proveedores/');
@@ -209,7 +209,7 @@ router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
              });
          })
      });
- });*/
+ });
 
 
 module.exports = router; //para que se puedad usar en el index, SE EXPORTA (IMPORTANTE)

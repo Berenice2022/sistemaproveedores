@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+    {{#each usuarios}}
+    <div class="col-md-3 mb-3">
+        <div class="card text-dark bg-light border-info mb-3">
+            <div class="card-header "> 
+                <h4 class="card-title d-flex justify-content-between align-items-center">
+                    Nombre: {{nombre}}
+                </h4>
+            </div>
+            <div class="card-body"> 
+                <p>Correo Electronico: {{email}}</p>
+                <p>Password: {{password}}</p>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h1>Hola {{usuario.nombre}}</h1>
+        </div>
+    </div>
+    {{/each}}
+    </div>
+</div>
+

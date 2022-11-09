@@ -30,6 +30,7 @@ app.engine('.hbs',engine({
     
     helpers: {
         equal: function (lvalue, rvalue, options){
+           
             if(lvalue != rvalue)
             return options.inverse(this);
             else
@@ -45,7 +46,7 @@ app.engine('.hbs',engine({
             if(i !== 1){
                 let last = i-1;
                 code += '<li class="page-item mr-1">'
-                     +  '<a href="/notes/'+ last+ '" class="page-link">...</a>'
+                     +  '<a href="/proveedores/'+ last+ '" class="page-link">...</a>'
                      +  '</li>';
             }
 
@@ -56,14 +57,14 @@ app.engine('.hbs',engine({
                      +  '</li>';
                 }else{
                     code += '<li class="page-item mr-1">'
-                    +  '<a href="/notes/'+ i + '" class="page-link">'+i+'</a>'
+                    +  '<a href="/proveedores/'+ i + '" class="page-link">'+i+'</a>'
                     +  '</li>';
                 }//else
 
                 if(i == (current + 2) && i < pages){
                     let last = i+1;
                     code += '<li class="page-item mr-1">'
-                    +  '<a href="/notes/'+ last+ '" class="page-link">...</a>'
+                    +  '<a href="/proveedores/'+ last+ '" class="page-link">...</a>'
                     +  '</li>';
                 }//if
             }//for

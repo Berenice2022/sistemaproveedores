@@ -2,7 +2,7 @@ const { request, response } = require('express');
 const express = require('express');
 const router = express.Router();//modulo para routas 
 
-//const faker = require('faker');
+const faker = require('faker');
 
 //modelo de notas de la db
 const Pedido = require('../model/Pedidos');
@@ -46,8 +46,8 @@ router.get('/pedidos/add', isAuthenticated , async function(req,res){
  
 
 router.get('/pedidos',isAuthenticated , async function(req,res){
-    /* const pedidos =  await Pedidos.find({usuario: req.user._id}).sort({fecha: 'desc'});
-    res.redirect('/pedidos/1');*/
+    //const pedidos =  await Pedido.find({usuario: req.user._id}).sort({fecha: 'desc'});
+   // res.redirect('/pedidos/1');
     await Pedido.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
               .then( (pedidos)=>{
                 res.render('pedidos/consulta-pedidos', {pedidos});
@@ -182,16 +182,16 @@ router.post('/pedidos/new-pedido', isAuthenticated , async function(req,res){
     }
 });//fin guardar
 
-/*data false
-router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
+//
+router.get('/generate-fake-data-pedidos', isAuthenticated, async (req,res) => {
     for(let i=0; i<30; i++){
          const newPedido = new Pedido();
          newPedido.usuario = req.user._id;
          
          newPedido.producto = faker.random.words();
          newPedido.proveedor = faker.random.words();
-         newPedido.cantidad_de_piezas = faker.random.numbers();
-         newPedido.costo_total = faker.random.numbers();
+         newPedido.cantidad_de_piezas = faker.random.number();
+         newPedido.costo_total = faker.random.number();
          await newPedido.save();
      }
     res.redirect('/pedidos/');
@@ -224,6 +224,6 @@ router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
              });
          })
      });
- });*/
+ });
 
 module.exports = router; //para que se puedad usar en el index, SE EXPORTA (IMPORTANTE)

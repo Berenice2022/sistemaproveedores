@@ -4,7 +4,7 @@ const router = express.Router();//modulo para routas
 const {unlink} = require('fs-extra');
 const path = require('path');
 
-//const faker = require('faker');
+const faker = require('faker');
 
 //modelo de notas de la db
 const Producto = require('../model/Productos');
@@ -43,8 +43,8 @@ router.get('/productos/add', isAuthenticated ,async function(req,res){
  
 
 router.get('/productos',isAuthenticated , async function(req,res){
-    /* const productos =  await Producto.find({usuario: req.user._id}).sort({fecha: 'desc'});
-    res.redirect('/productos/1');*/
+   //  const productos =  await Producto.find({usuario: req.user._id}).sort({fecha: 'desc'});
+   // res.redirect('/productos/1');
     await Producto.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
               .then( (productos)=>{
                 res.render('productos/consulta-productos', {productos});
@@ -191,8 +191,8 @@ router.post('/productos/new-producto', isAuthenticated , async function(req,res)
     }
 });//fin guardar
 
-/*data false
-router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
+//data false
+router.get('/generate-fake-data-productos', isAuthenticated, async (req,res) => {
     for(let i=0; i<30; i++){
          const newProducto = new Producto();
          newProducto.usuario = req.user._id;
@@ -200,8 +200,8 @@ router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
          newProducto.nombre = faker.random.word();
          newProducto.description = faker.random.words();
          newProducto.proveedor = faker.random.words();
-         newProducto.precio_de_compra = faker.random.numbers();
-         newProducto.precio_de_venta = faker.random.numbers();
+         newProducto.precio_de_compra = faker.random.number();
+         newProducto.precio_de_venta = faker.random.number();
          await newProducto.save();
      }
     res.redirect('/productos/');
@@ -215,7 +215,7 @@ router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
  
      let numProducto = (perPage*page)-perPage;
  
-     await Proveedor.find({user: req.user._id})
+     await Producto.find({user: req.user._id})
      .sort({fecha: 'desc'})
      .skip(numProducto)
      .limit(perPage)
@@ -234,6 +234,6 @@ router.get('/generate-fake-data', isAuthenticated, async (req,res) => {
              });
          })
      });
- });*/
+ });
 
 module.exports = router; //para que se puedad usar en el index, SE EXPORTA (IMPORTANTE)
