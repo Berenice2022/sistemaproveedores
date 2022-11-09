@@ -43,7 +43,7 @@ router.get('/pedidos/add', isAuthenticated , async function(req,res){
 
     res.render('pedidos/new-pedido.hbs',{arregloprovee,arregloproduc});
 });
- 
+  
 
 router.get('/pedidos',isAuthenticated , async function(req,res){
     //const pedidos =  await Pedido.find({usuario: req.user._id}).sort({fecha: 'desc'});
