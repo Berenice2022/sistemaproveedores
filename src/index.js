@@ -6,6 +6,8 @@ const session = require('express-session');
 const flash = require('connect-flash');//mensajes de app
 const passport = require('passport');
 
+//heroku Mama123anita+
+
 const morgan = require('morgan');
 const multer = require('multer');
 const {v4 : uuidv4} = require('uuid');
