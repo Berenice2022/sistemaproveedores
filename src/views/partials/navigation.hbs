@@ -69,6 +69,8 @@
             </a>
           </ul>
         </li>
+
+{{#unless usuario.tipo}}
          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" role="button" 
           data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,6 +87,7 @@
           <i class="far fa-question-circle text-white"></i><small> Info</small></a>
         </li>
 
+{{/unless}}
         </ul>
         
         {{else}}
