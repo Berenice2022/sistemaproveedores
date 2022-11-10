@@ -34,11 +34,11 @@ router.get('/proveedores/add', isAuthenticated ,function(req,res){
 
 
 router.get('/proveedores',isAuthenticated , async function(req,res){
-    const proveedores =  await Proveedor.find({usuario: req.user._id}).sort({fecha: 'desc'});
-    res.redirect('/proveedores/1');
-   /* await Proveedor.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
+   const proveedores =  await Proveedor.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
+   res.redirect('/proveedores/1');
+  /*await Proveedor.find({usuario: req.user._id}).lean().sort({fecha: 'desc'})
               .then( (proveedores)=>{
-                res.render('proveedores/consulta-proveedores', {proveedores});
+                res.render('/proveedores/1');
               })
               .catch( (err)=>{
                 console.log(err);
