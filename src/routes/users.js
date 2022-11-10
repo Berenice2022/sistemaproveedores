@@ -75,8 +75,7 @@ router.post('/users/signup', async function(req,res){
        const newUser = new Usuario({
         nombre,
         email,
-        password,
-        tipo:1
+        password
        });
        newUser.password = await newUser.encryptPassword (password);
        console.log(newUser);
