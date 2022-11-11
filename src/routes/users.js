@@ -93,7 +93,7 @@ router.post('/users/signup', async function(req,res){
  }); 
 
  router.get('/usuarios', async function(req,res){
-    const usuarios =  await Usuario.find({}).sort({date: 'desc'});
+    const usuarios =  await Usuario.find({usuario: req.user._id}).sort({date: 'desc'});
     res.render('users/consulta-usuarios',{ usuarios});
 });
 module.exports = router; //para que se puedad usar en el index, SE EXPORTA (IMPORTANTE)
